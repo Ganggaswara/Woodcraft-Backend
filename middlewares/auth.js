@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = process.env.JWT_SECRET || 'please-change-this-secret';
+const JWT_SECRET = process.env.JWT_SECRET || (process.env.NODE_ENV === 'production' ? undefined : 'please-change-this-secret');
+if (!JWT_SECRET) { throw new Error('JWT_SECRET not configured'); }
 
 module.exports = function authMiddleware(req, res, next) {
   const authHeader = req.headers.authorization || req.headers['x-access-token'];
