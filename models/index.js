@@ -13,7 +13,7 @@ const sequelize = new Sequelize(
   }
 );
 
-const Product = require('./product')(sequelize);
+const Product = require('./Product')(sequelize);
 const User = require('./users')(sequelize);
 const Transaction = require('./transactions')(sequelize);
 
