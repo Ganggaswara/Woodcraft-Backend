@@ -50,7 +50,6 @@ const limiter = rateLimit({
 
 app.use(limiter);
 
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -61,7 +60,6 @@ app.use('/api/v1/products', productsRouter);
 app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/transactions', transactionsRouter);
-
 
 var notFound = require('./middlewares/notFound');
 var errorHandler = require('./middlewares/errorHandler');
